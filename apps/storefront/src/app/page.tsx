@@ -1,11 +1,13 @@
-import { log } from "@repo/logger";
+import { log, dbConnect } from "@repo/logger";
 import { CounterButton, Link } from "@repo/ui";
 
 export const metadata = {
   title: "Store | Kitchen Sink",
 };
 
-export default function Store(): JSX.Element {
+export default async function Store(): Promise<JSX.Element> {
+  const client = await dbConnect();
+
   log("Hey! This is the Store page.");
 
   return (
